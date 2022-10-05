@@ -1,4 +1,3 @@
-module.exports = {
 
-    messageController: require('./messageController'),
-}
+export { default as messageController } from './messageController.js';
+export { default as webhookController } from './webhookController.js';

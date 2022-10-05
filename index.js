@@ -1,13 +1,15 @@
 'use strict';
 
-const dotenv = require('dotenv');
-const express = require('express');
+import dotenv from 'dotenv';
+import express from'express';
 
 const app = express();
 const env = dotenv.config();
 
-const { config }  = require('./config');
-console.log(config)
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-require('./src/web')(app);
+import { config } from './config/index.js';
+import initWeb from './src/web.js';
+
+initWeb(app)
